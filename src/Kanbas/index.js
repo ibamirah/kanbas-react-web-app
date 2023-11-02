@@ -8,9 +8,6 @@ function Kanbas() {
     <div className="d-flex">
       <KanbasNavigation />
       <div>
-        <h1>Kanbas Navigation</h1>
-      </div>
-      <div>
       <Routes>
           <Route path="/" element={<Navigate to="Dashboard" />} />
           <Route path="Account" element={<h1>Account</h1>} />

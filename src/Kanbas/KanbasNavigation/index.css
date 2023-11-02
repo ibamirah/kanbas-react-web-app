@@ -2,6 +2,8 @@
     background: rgb(0, 0, 0);
     border-radius: 0px;
     border: none;
+
+    /* center */
   }
   
   .wd-kanbas-navigation a {
@@ -9,9 +11,15 @@
     color: white;
     border-radius: 0px;
     border: none;
+    font-size: 16px;
+    text-align: center !important;
   }
   
   .wd-kanbas-navigation a.active {
     background-color: white;
     color: red;
+  }
+  .text{
+    color: red;
+
   }

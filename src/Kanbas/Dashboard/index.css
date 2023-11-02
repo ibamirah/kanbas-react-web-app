@@ -1,0 +1,22 @@
+.dashboard{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-evenly;
+    padding-left: 40px;
+}
+.dashboard-name{
+  
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200px;
+}
+.horizontal-line {
+    width: 100%;
+    border-top: 1px solid #000; 
+    /* margin: 10px 0;  */
+    padding-top: 20px;
+  }
+.published-name{
+    /* font-family: 'Raleway', sans-serif; */
+    /* padding-top: 20px; */
+}
