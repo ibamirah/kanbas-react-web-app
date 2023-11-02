@@ -2,15 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Card } from "react-bootstrap";
 
-const colors = ["#F44336", "#2196F3", "#4CAF50", "#FFC107", "#9C27B0"];
-
-function getRandomColor() {
-  const randomIndex = Math.floor(Math.random() * colors.length);
-  return colors[randomIndex];
-}
 
 function CourseCard({ course }) {
-
 
   return (
     <Card className="canvas-course-card">
