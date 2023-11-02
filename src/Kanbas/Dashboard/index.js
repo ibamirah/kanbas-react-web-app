@@ -1,11 +1,8 @@
-import { Link } from "react-router-dom";
 import db from "../Database";
 import "./index.css";
 import { Helmet } from "react-helmet";
 import React from "react";
 import CourseCard from './CourseCard';
-import { Card } from "react-bootstrap";
-import { FaStickyNote } from "react-icons/fa";
 function Dashboard() {
     const courses = db.courses;
     return (
