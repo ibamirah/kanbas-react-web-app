@@ -1,7 +1,8 @@
 .wd-course-navigation {
   border-radius: 0px;
-  display: flex;
-  justify-content: flex-start;
+  /* display: flex;
+  justify-content: flex-start; */
+  margin-right: 220px;
 }
 .wd-course-navigation a {
   background: white;

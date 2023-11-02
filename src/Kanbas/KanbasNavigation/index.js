@@ -22,12 +22,11 @@ function KanbasNavigation() {
         Studio: <MdOutlineMonitor className="fs-1 text" />,
         Commons: <BiExit className="fs-1 text" />,
         Help: <BiHelpCircle className="fs-1 text" />,
-        // add icons to the rest of LINK
     };
     const { pathname } = useLocation();
     // const websiteUrl = 'https://www.Northeastern.edu';
     return (
-        <div className="wd-kanbas-navigation list-group" style={{ width: 150 }}>
+        <div className="wd-kanbas-navigation list-group" style={{ width: 80 }}>
             {/* <a href={websiteUrl} target="_blank"> */}
             <img src={myImage} alt="Northeastern Logo" />
             {/* </a> */}
