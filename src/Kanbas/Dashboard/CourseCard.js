@@ -10,7 +10,6 @@ function getRandomColor() {
 }
 
 function CourseCard({ course }) {
-    const randomColor = getRandomColor();
 
 
   return (
