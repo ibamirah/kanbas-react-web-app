@@ -1,26 +1,40 @@
 import db from "../Database";
+import "./index.css";
 import { Navigate, Route, Routes, useParams } from "react-router-dom";
 import CourseNavigation from "./CourseNavigation";
 import Modules from "../Modules";
 import Home from "../Home";
+import { Helmet } from "react-helmet";
 import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/AssignmentEditor";
+import { AiOutlineMenu } from "react-icons/ai";
 
 function Courses() {
     const { courseId } = useParams();
     const course = db.courses.find((course) => course._id === courseId);
     return (
         <div>
-            <h1>Course {course.name}</h1>
+            <Helmet>
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400&display=swap"
+                    rel="stylesheet"
+                />
+            </Helmet>
+            <div>
+            <AiOutlineMenu style={{ display: 'inline-block' }}/>
+            <h1 className="course-name" style={{ display: 'inline-block' }}>Course {course.number}  &gt; </h1>
+            </div>
+            <div className="horizontal-line1"></div>
             <CourseNavigation />
             <div>
                 <div
                     className="overflow-y-scroll position-fixed bottom-0 end-0"
                     style={{
                         left: "320px",
-                        top: "50px",
+                        top: "100px",
                     }}
                 >
+                    
                     <Routes>
                         <Route path="/" element={<Navigate to="Home" />} />
                         <Route path="Home" element={<Home />} />

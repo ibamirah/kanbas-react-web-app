@@ -1,0 +1,15 @@
+.course-name{
+    margin-top: 15px;
+    margin-left: 15px;
+    font-size: 25px; 
+}
+
+
+.horizontal-line1 {
+    width: 100%;
+    border-top: 1px solid #000; 
+    margin: 10px 0; 
+    position: fixed;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
