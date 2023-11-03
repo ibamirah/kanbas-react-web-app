@@ -1,8 +1,5 @@
 .dashboard{
-    display: flex;
-    flex-direction: column;
-    /* align-items: center; */
-    justify-content: space-evenly;
+    width: 100%;
     padding-left: 40px;
 }
 .dashboard-name{
@@ -16,7 +13,32 @@
     /* margin: 10px 0;  */
     padding-top: 20px;
   }
-.published-name{
-    /* font-family: 'Raleway', sans-serif; */
-    /* padding-top: 20px; */
+/* .published-name{
+    font-family: 'Raleway', sans-serif; */
+    /* padding-top: 20px;
+} */
+.list-group{
+margin-bottom: 40px;
+}
+.addCourse{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.btn-course{
+    size: 20px;
+    border-radius: 6px;
+    margin-right: 10px;
+}
+.form-control{
+    flex: 1;
+    margin-right: 10px;
+}
+.add{
+    background-color:rgb(38, 112, 38) ;
+    color: white;
+}
+.update{
+    background-color:rgb(44, 44, 179);
+    color: white;
 }
