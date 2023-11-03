@@ -1,0 +1,31 @@
+.list-group {
+    margin-bottom: 30px; 
+  }
+  
+  .green-checkmark {
+    color: green;
+  }
+  .button-group{
+    /* display: flex;
+    justify-content: space-around; */
+    margin-bottom: 20px;
+    margin-top: 15px;
+  }
+  .button-group button {
+    background-color: #E2E3E5;
+    color: #000; 
+    border: none;
+    margin: 5px;
+  }
+
+  .horizontal-line {
+    width: 100%;
+    border-top: 1px solid #000; 
+    /* margin: 10px 0;  */
+    padding-top: 20px;
+  }
+
+  .module-button{
+    background-color: red;
+    color: white;
+  }

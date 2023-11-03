@@ -1,11 +1,13 @@
 import { Link, useParams, useLocation } from "react-router-dom";
 import "./index.css";
+import { GrMenu } from "react-icons/gr";
 function CourseNavigation() {
   const links = ["Home", "Modules", "Piazza", "Zoom Meetings", "Assignments",  "Quizzes", "Grades", "People", "Panopto Video", "Credentials", "Progress Reports" ];
   const { courseId } = useParams();
   const { pathname } = useLocation();
   return (
-    <div className="wd-course-navigation list-group" style={{ width: 150, marginRight: 220}}>
+    <div className="header-group">
+    <div className="wd-course-navigation list-group" style={{ width: 150, marginRight: 230, marginTop: 50}}>
       {links.map((link, index) => (
         <Link
           key={index}
@@ -15,6 +17,7 @@ function CourseNavigation() {
           {link}
         </Link>
       ))}
+    </div>
     </div>
   );
 }
