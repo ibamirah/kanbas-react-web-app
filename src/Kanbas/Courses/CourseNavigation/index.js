@@ -1,6 +1,5 @@
 import { Link, useParams, useLocation } from "react-router-dom";
 import "./index.css";
-import { GrMenu } from "react-icons/gr";
 function CourseNavigation() {
   const links = ["Home", "Modules", "Piazza", "Zoom Meetings", "Assignments",  "Quizzes", "Grades", "People", "Panopto Video", "Credentials", "Progress Reports" ];
   const { courseId } = useParams();
