@@ -1,10 +1,12 @@
-import { React } from "react";
+import { React, useState } from "react";
 import "./card.css";
 import { Link } from "react-router-dom";
 import { Card } from "react-bootstrap";
 
 
-function CourseCard({ course, onDelete }) {
+function CourseCard({ course, onDelete, onEdit }) {
+  const [ setIsEditing] = useState(false);
+
   return (
     <Card className="canvas-course-card course-card">
       <Card.Body>
@@ -14,10 +16,11 @@ function CourseCard({ course, onDelete }) {
         <Link to={`/Kanbas/Courses/${course._id}`} className="btn btn-primary">
           View Course
         </Link>
-        <button onClick={() => onDelete(course._id)}> Delete
+        {/* <div className="deleteEditButton">
+        <button className="edit-btn"  onClick={handleEditClick} >Edit</button>
+        <button className="delete-btn" onClick={() => onDelete(course._id)}> Delete
         </button>
-        <button>Edit</button> {/* Placeholder Edit button */}
-
+        </div> */}
       </Card.Body>
     </Card>
   );
