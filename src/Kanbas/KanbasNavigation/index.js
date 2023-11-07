@@ -26,7 +26,7 @@ function KanbasNavigation() {
     const { pathname } = useLocation();
     // const websiteUrl = 'https://www.Northeastern.edu';
     return (
-        <div className="wd-kanbas-navigation list-group" style={{ width: 80 }}>
+        <div className="wd-kanbas-navigation list-group" style={{ width: 100 }}>
             {/* <a href={websiteUrl} target="_blank"> */}
             <img src={myImage} alt="Northeastern Logo" />
             {/* </a> */}

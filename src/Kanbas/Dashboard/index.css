@@ -42,3 +42,47 @@ margin-bottom: 40px;
     background-color:rgb(44, 44, 179);
     color: white;
 }
+.course-name{
+    font-size: 20px;
+}
+.head-buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.edit-btn{
+    background-color: rgb(216, 216, 37);
+    color: black;
+    margin-right: 20px;
+    padding: 2px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 7px;
+    border-style: none;
+}
+.delete-btn{
+    background-color: rgb(189, 18, 18);
+    color: white;
+    border-radius: 7px;
+    padding: 2px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 7px;
+    border-style: none;
+    margin-left: 10px;
+}
+.modify-btn{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.list-group-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.course-info{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}

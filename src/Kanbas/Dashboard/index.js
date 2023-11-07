@@ -1,8 +1,8 @@
 import db from "../Database";
 import "./index.css";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 import { React, useState } from "react";
-import CourseCard from './CourseCard';
 
 function Dashboard() {
     const [courses, setCourses] = useState(db.courses);
@@ -10,6 +10,7 @@ function Dashboard() {
         name: "New Course", number: "New Number",
         startDate: "2023-09-10", endDate: "2023-12-15",
     });
+
 
     const addNewCourse = () => {
         setCourses([...courses, {
@@ -20,6 +21,20 @@ function Dashboard() {
     const deleteCourse = (courseId) => {
         setCourses(courses.filter((course) => course._id !== courseId));
     };
+
+    const updateCourse = () => {
+        setCourses(
+            courses.map((c) => {
+                if (c._id === course._id) {
+                    return course;
+                } else {
+                    return c;
+                }
+            })
+        );
+    };
+
+
 
     return (
         <div className="dashboard">
@@ -44,14 +59,52 @@ function Dashboard() {
                 <input value={course.endDate} className="form-control" type="date"
                     onChange={(e) => setCourse({ ...course, endDate: e.target.value })} />
                 <button className="btn-course add" onClick={addNewCourse}> Add </button>
-                <button className="btn-course update" onClick={addNewCourse}> Update </button>
+                <button className="btn-course update" onClick={updateCourse} >Update </button>
+
             </div>
             <div className="list-group">
                 {courses.map((course) => (
-                    <CourseCard key={course._id} course={course} onDelete={deleteCourse} />
+                    <Link key={course._id} to={`/Kanbas/Courses/${course._id}`}
+                        className="list-group-item">
+                        <div className="head-buttons">
+                            <span className="course-name">{course.name}</span>
+                            <div className="modify-btn">
+                                <button
+                                    className="edit-btn"
+                                    onClick={(event) => {
+                                        event.preventDefault();
+                                        setCourse(course);
+                                    }}>
+                                    Edit
+                                </button>
+                                <button
+                                    className="delete-btn"
+                                    onClick={(event) => {
+                                        event.preventDefault();
+                                        deleteCourse(course._id);
+                                    }}>
+                                    Delete
+                                </button>
+                            </div>
+                        </div>
+                        <div className="course-info">
+                            <span>{course.number}</span>
+                            <span>{course.startDate}</span>
+                        </div>
+                    </Link>
+                ))}
+            </div>
+
+            {/* <div className="list-group">
+                {courses.map((course) => (
+                    <CourseCard key={course._id} course={course}
+                        onDelete={deleteCourse}
+                        onEdit={(course) => setEditingCourse(course)} />
+                    // onEdit={(editedCourse) => setEditingCourse(editedCourse)} />
                 ))}
 
-            </div>
+            </div> */}
+
         </div>
     );
 }
