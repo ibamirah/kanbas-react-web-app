@@ -1,7 +1,3 @@
-.list-group {
-    margin-bottom: 30px; 
-  }
-  
   .green-checkmark {
     color: green;
   }
@@ -12,9 +8,9 @@
     margin-top: 15px;
   }
   .button-group button {
-    background-color: #E2E3E5;
+    background-color: #f1f1f2;
     color: #000; 
-    border: none;
+    border: solid gray .5px;
     margin: 5px;
   }
 
@@ -25,7 +21,125 @@
     padding-top: 20px;
   }
 
-  .module-button{
-    background-color: red;
+  /* .module-button{
+    background-color: rgb(187, 11, 11);
     color: white;
-  }
+  } */
+
+ .add-course-section{
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 97%;
+ }
+ 
+ .new-mod-input{
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: solid gray .5px;
+  padding-left: 7px;
+  padding-bottom: 10px;
+  padding-top: 7px;
+ }
+
+ .new-description-input{
+  margin-bottom: 5px;
+  border-radius: 5px;
+  border: solid gray .5px;
+  padding-left: 7px;
+  padding-bottom: 10px;
+  padding-top: 7px;
+ }
+
+.add-btn{
+  margin-top: 5px;
+}
+.add-button{
+  border-radius: 3px;
+  border: solid gray .5px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 13px;
+  padding-right: 13px;
+}
+.update-button{
+  border-radius: 3px;
+  border: solid gray .5px;
+  background-color: rgb(189, 18, 18);
+  color: white;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 13px;
+  padding-right: 13px;
+  margin-left: 12px;
+}
+
+.list-group-item-secondary {
+margin-bottom: 20px;
+background-color: rgb(205, 205, 205);
+width: 97%;
+}
+
+.mod-name{
+  font-size: 17px;
+  font-weight: bold;
+}
+.vertical-dots-icon{
+font-size: 24px;
+margin: 5px;
+}
+
+.dropdown-side-icon{
+  font-size: 20px;
+}
+
+.dropdown-icon{
+  margin-top: 17px;
+}
+.green-checkmark{
+  margin-top: 17px;
+  margin-right: 4px;
+}
+.green-checkmark1{
+  font-size: 20px;
+  color: green;
+}
+
+.dropwdown-header{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between ;
+}
+.half-dropdown-header{
+  display: flex;
+  justify-content:flex-end ;
+  justify-content:space-around ;
+}
+.gray-plus-sign{
+  color: gray;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 17px;
+}
+.three-vertical-dots{
+margin-top: 17px;
+}
+.delete-btn{
+  font-size: 13px;
+  margin: 10px;
+  padding-left: 11px;
+  padding-right: 11px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 3px;
+}
+.edit-btn{
+  font-size: 13px;
+  margin: 10px;
+  padding-left: 11px;
+  padding-right: 11px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 3px;
+}
