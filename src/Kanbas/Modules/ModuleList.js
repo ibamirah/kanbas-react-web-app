@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import "./index.css";
-import db from "../Database";
 import { AiFillCaretDown } from "react-icons/ai";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 import { AiOutlinePlus } from "react-icons/ai";
@@ -9,38 +8,29 @@ import { AiOutlineCheckCircle } from "react-icons/ai";
 import { FaEllipsisV } from "react-icons/fa";
 import { PiDotsSixVerticalBold } from "react-icons/pi";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  addModule,
+  deleteModule,
+  updateModule,
+  setModule,
+} from "./modulesReducer";
 
 
 function ModuleList() {
   const { courseId } = useParams();
-  const [modules, setModules] = useState(db.modules);
-  const [module, setModule] = useState({
-    name: "New Module",
-    description: "New Description",
-    course: courseId,
-  });
-  const addModule = (module) => {
-    setModules([
-      { ...module, _id: new Date().getTime().toString() },
-      ...modules,
-    ]);
-  };
-  const deleteModule = (moduleId) => {
-    setModules(modules.filter(
-      (module) => module._id !== moduleId));
+  const modules = useSelector((state) => state.modulesReducer.modules);
+  const module = useSelector((state) => state.modulesReducer.module);
+  const [descriptionVisibility, setDescriptionVisibility] = useState({});
+  
+  const dispatch = useDispatch();
 
+  const toggleDescription = (moduleId) => {
+    setDescriptionVisibility((prevState) => ({
+      ...prevState,
+      [moduleId]: !prevState[moduleId] || false,
+    }));
   };
-  const updateModule = () => {
-    setModules(
-      modules.map((m) => {
-        if (m._id === module._id) {
-          return module;
-        } else {
-          return m;
-        }
-      })
-    );
-  }
 
 
   return (
@@ -69,18 +59,15 @@ function ModuleList() {
       <li className="list-group-item">
         <div className="add-course-section">
           <input className="new-mod-input" value={module.name}
-            onChange={(e) => setModule({
-              ...module, name: e.target.value
-            })}
+            onChange={(e) => dispatch(setModule({ ...module, name: e.target.value }))}
           />
           <textarea className="new-description-input" value={module.description}
-            onChange={(e) => setModule({
-              ...module, description: e.target.value
-            })}
+            onChange={(e) => dispatch(setModule({ ...module, description: e.target.value }))
+          }
           />
           <div className="add-btn">
-            <button className="add-button" onClick={() => { addModule(module) }}>Add</button>
-            <button className="update-button" onClick={updateModule}> Update </button>
+            <button className="add-button" onClick={() => dispatch(addModule({ ...module, course: courseId }))}>Add</button>
+            <button className="update-button" onClick={() => dispatch(updateModule(module))}> Update </button>
 
           </div>
         </div>
@@ -98,7 +85,10 @@ function ModuleList() {
                   <div  style={{ display: "flex", alignItems: "center" }}>
                     <i style={{ marginRight: 5, cursor: "pointer" }}>
                       <PiDotsSixVerticalBold className="vertical-dots-icon" />
-                      <AiFillCaretDown className="dropdown-side-icon" style={{ transform: "rotate(-90deg)" }} />
+                      <AiFillCaretDown className="dropdown-side-icon" 
+                      style={{
+                        transform: descriptionVisibility[module._id] ? "rotate(-90deg)" : "rotate(0deg)"}}
+                        onClick={() => toggleDescription(module._id)} />
                     </i>
                     <h3 className="mod-name">{module.name}</h3>
                     </div>
@@ -107,12 +97,13 @@ function ModuleList() {
                       <AiFillCaretDown className="dropdown-icon" style={{ "rotate(0deg)": "rotate(90deg)" }} />
                       <AiOutlinePlus className="gray-plus-sign" />
                       <BsThreeDotsVertical className="three-vertical-dots" />
-                      <button className="edit-btn" onClick={(event) => { setModule(module); }}> Edit </button>
-                      <button className="delete-btn" onClick={() => deleteModule(module._id)}> Delete </button>
+                      <button className="edit-btn" onClick={() => dispatch(setModule(module))}> Edit </button>
+                      <button className="delete-btn" onClick={() => dispatch(deleteModule(module._id))}>
+ Delete </button>
                     </div>
                   
                 </div>
-                <p>{module.description}</p>
+                {descriptionVisibility[module._id] && <p>{module.description}</p>}
 
               </li>
             </ul>
