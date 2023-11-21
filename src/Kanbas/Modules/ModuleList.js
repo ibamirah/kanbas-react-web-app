@@ -113,7 +113,7 @@ function ModuleList() {
                       <PiDotsSixVerticalBold className="vertical-dots-icon" />
                       <AiFillCaretDown className="dropdown-side-icon" 
                       style={{
-                        transform: descriptionVisibility[module._id] ? "rotate(-90deg)" : "rotate(0deg)"}}
+                        transform: descriptionVisibility[module._id] ? "rotate(0deg)" : "rotate(-90deg)"}}
                         onClick={() => toggleDescription(module._id)} />
                     </i>
                     <h3 className="mod-name">{module.name}</h3>
