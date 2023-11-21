@@ -47,7 +47,7 @@ function ModuleList() {
   };
 
   const handleUpdateModule = async () => {
-    const status = await client.updateModule(module);
+     await client.updateModule(module);
     dispatch(updateModule(module));
   };
 
@@ -57,6 +57,7 @@ function ModuleList() {
       .then((modules) =>
         dispatch(setModules(modules))
     );
+    // eslint-disable-next-line
   }, [courseId]);
 
   return (
