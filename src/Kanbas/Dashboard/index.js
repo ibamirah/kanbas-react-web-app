@@ -1,4 +1,3 @@
-import db from "../Database";
 import "./index.css";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
