@@ -32,14 +32,19 @@ function Kanbas() {
     setCourse( initialCourseState );
   };
 
-  const deleteCourse = async (courseId) => {
-    const response = await axios.delete(`${URL}/${courseId}`);
-    setCourses(courses.filter((c) => c._id !== courseId));
-};
+  const deleteCourse = async (course) => {
+    await axios.delete(
+      `${URL}/${course._id}`
+    );
+    setCourses(courses.filter(
+      (c) => c._id !== course._id));
+  };
+
 
 const updateCourse = async (course) => {
   try {
-    await axios.put(`${URL}/${course._id}`, course);
+    console.log(course._id);
+    await axios.put(`${URL}/${course._id['$oid']}`, course);
     setCourses(
       courses.map((c) => {
         if (c._id === course._id) {
