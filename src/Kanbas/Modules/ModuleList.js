@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./index.css";
 import { AiFillCaretDown } from "react-icons/ai";
@@ -9,12 +9,15 @@ import { FaEllipsisV } from "react-icons/fa";
 import { PiDotsSixVerticalBold } from "react-icons/pi";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { useSelector, useDispatch } from "react-redux";
+import { findModulesForCourse, createModule } from "./client";
 import {
   addModule,
   deleteModule,
   updateModule,
   setModule,
+  setModules
 } from "./modulesReducer";
+import * as client from "./client";
 
 
 function ModuleList() {
@@ -31,7 +34,30 @@ function ModuleList() {
       [moduleId]: !prevState[moduleId] || false,
     }));
   };
+  const handleAddModule = () => {
+    createModule(courseId, module).then((module) => {
+      dispatch(addModule(module));
+    });
+  };
 
+  const handleDeleteModule = (moduleId) => {
+    client.deleteModule(moduleId).then((status) => {
+      dispatch(deleteModule(moduleId));
+    });
+  };
+
+  const handleUpdateModule = async () => {
+    const status = await client.updateModule(module);
+    dispatch(updateModule(module));
+  };
+
+
+  useEffect(() => {
+    findModulesForCourse(courseId)
+      .then((modules) =>
+        dispatch(setModules(modules))
+    );
+  }, [courseId]);
 
   return (
     <div>
@@ -66,8 +92,8 @@ function ModuleList() {
           }
           />
           <div className="add-btn">
-            <button className="add-button" onClick={() => dispatch(addModule({ ...module, course: courseId }))}>Add</button>
-            <button className="update-button" onClick={() => dispatch(updateModule(module))}> Update </button>
+            <button className="add-button" onClick={handleAddModule}>Add</button>
+            <button className="update-button" onClick={handleUpdateModule}> Update </button>
 
           </div>
         </div>
@@ -98,7 +124,7 @@ function ModuleList() {
                       <AiOutlinePlus className="gray-plus-sign" />
                       <BsThreeDotsVertical className="three-vertical-dots" />
                       <button className="edit-btn" onClick={() => dispatch(setModule(module))}> Edit </button>
-                      <button className="delete-btn" onClick={() => dispatch(deleteModule(module._id))}>
+                      <button className="delete-btn" onClick={() => handleDeleteModule(module._id)}>
  Delete </button>
                     </div>
                   
