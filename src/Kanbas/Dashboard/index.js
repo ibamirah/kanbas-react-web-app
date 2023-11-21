@@ -4,35 +4,37 @@ import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { React, useState } from "react";
 
-function Dashboard() {
-    const [courses, setCourses] = useState(db.courses);
-    const [course, setCourse] = useState({
-        name: "New Course", number: "New Number",
-        startDate: "2023-09-10", endDate: "2023-12-15",
-    });
+function Dashboard({addNewCourse, deleteCourse, updateCourse, 
+    course, courses, setCourse}) {
+    // console.log(typeof addNewCourse); -- it is an object getting an error
+    // const [courses, setCourses] = useState(db.courses);
+    // const [course, setCourse] = useState({
+    //     name: "New Course", number: "New Number",
+    //     startDate: "2023-09-10", endDate: "2023-12-15",
+    // });
 
 
-    const addNewCourse = () => {
-        setCourses([...courses, {
-            ...course, _id: new Date().getTime()
-        }]);
-    };
+    // const addNewCourse = () => {
+    //     setCourses([...courses, {
+    //         ...course, _id: new Date().getTime()
+    //     }]);
+    // };
 
-    const deleteCourse = (courseId) => {
-        setCourses(courses.filter((course) => course._id !== courseId));
-    };
+    // const deleteCourse = (courseId) => {
+    //     setCourses(courses.filter((course) => course._id !== courseId));
+    // };
 
-    const updateCourse = () => {
-        setCourses(
-            courses.map((c) => {
-                if (c._id === course._id) {
-                    return course;
-                } else {
-                    return c;
-                }
-            })
-        );
-    };
+    // const updateCourse = () => {
+    //     setCourses(
+    //         courses.map((c) => {
+    //             if (c._id === course._id) {
+    //                 return course;
+    //             } else {
+    //                 return c;
+    //             }
+    //         })
+    //     );
+    // };
 
 
 
@@ -64,7 +66,7 @@ function Dashboard() {
             </div>
             <div className="list-group">
                 {courses.map((course) => (
-                    <Link key={course._id} to={`/Kanbas/Courses/${course._id}`}
+                    <Link key={course._id} to={`/Kanbas/courses/${course._id.$oid}`}
                         className="list-group-item">
                         <div className="head-buttons">
                             <span className="course-name">{course.name}</span>

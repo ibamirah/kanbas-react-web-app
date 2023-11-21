@@ -20,7 +20,7 @@ function AssignmentEditor() {
       <h2>Assignment Name</h2>
       <input value={assignment.title}
              className="form-control mb-2" />
-      <Link to={`/Kanbas/Courses/${courseId}/Assignments`}
+      <Link key={assignment._id} to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}
             className="btn btn-danger">
         Cancel
       </Link>
