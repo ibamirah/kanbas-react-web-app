@@ -1,4 +1,7 @@
 import KanbasNavigation from "./KanbasNavigation";
+import Signin from "./users/signin";
+import Account from "./users/account";
+import UserTable from "./users/table";
 import Dashboard from "./Dashboard";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Courses from "./Courses";
@@ -6,7 +9,7 @@ import store from "./store";
 import { Provider } from "react-redux";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 function Kanbas() {
   const initialCourseState = {
     name: "New Course",
@@ -53,7 +56,7 @@ const updateCourse = async (course) => {
     console.log(error);
   }
 };
-
+const { pathname } = useLocation();
   useEffect(() => {
     findAllCourses();
   }, []);
@@ -62,6 +65,18 @@ const updateCourse = async (course) => {
     <Provider store={store}>
     <div className="d-flex">
       <KanbasNavigation />
+      <nav className="list-group">
+    <Link to="kanbas"
+        className={`list-group-item list-group-item-action ${pathname.includes("home") ? "active" : ""}`}>Home</Link>
+    <Link to="/Kanbas/signin"
+        className={`list-group-item list-group-item-action ${pathname.includes("signin") ? "active" : ""}`}>Sign In</Link>
+    <Link to="/Kanbas/signup"
+          className={`list-group-item list-group-item-action ${pathname.includes("signup") ? "active" : ""}`}>Sign Up</Link>
+    <Link to="/Kanbas/account"
+        className={`list-group-item list-group-item-action ${pathname.includes("account") ? "active" : ""}`}>Account</Link>
+    <Link to="/Kanbas/search"
+          className={`list-group-item list-group-item-action ${pathname.includes("search") ? "active" : ""}`}>Search</Link>
+</nav>
       <div>
       <Routes>
           <Route path="/" element={<Navigate to="Dashboard" />} />
@@ -74,9 +89,13 @@ const updateCourse = async (course) => {
           addNewCourse={addNewCourse}
           deleteCourse={deleteCourse}
           updateCourse={updateCourse}
-          />} />
+          />}
+           />
           
           <Route path="Courses/:courseId/*" element={<Courses />} />
+          <Route path="/signin" element={<Signin />} />
+          <Route path="Account" element={<Account />} />
+          <Route path="/admin/users" element={<UserTable />} />
         </Routes>
       </div>
     </div>
