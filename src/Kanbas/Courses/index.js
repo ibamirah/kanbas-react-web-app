@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import db from "../../Kanbas/Database";
 import "./index.css";
 import { Navigate, Route, Routes, useParams } from "react-router-dom";
 import CourseNavigation from "./CourseNavigation";
