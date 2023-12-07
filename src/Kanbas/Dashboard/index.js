@@ -1,8 +1,7 @@
-import db from "../Database";
 import "./index.css";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
-import { React, useState } from "react";
+import { React} from "react";
 
 function Dashboard({addNewCourse, deleteCourse, updateCourse, 
     course, courses, setCourse}) {
