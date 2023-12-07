@@ -83,7 +83,7 @@ function Dashboard({addNewCourse, deleteCourse, updateCourse,
                                     className="delete-btn"
                                     onClick={(event) => {
                                         event.preventDefault();
-                                        deleteCourse(course._id);
+                                        deleteCourse(course);
                                     }}>
                                     Delete
                                 </button>

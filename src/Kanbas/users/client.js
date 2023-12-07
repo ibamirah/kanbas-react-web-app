@@ -3,7 +3,7 @@ export const BASE_API = process.env.REACT_APP_BASE_API_URL;
 export const USERS_API = `${BASE_API}/api/users`;
 const request = axios.create({
     withCredentials: true,
-  });
+});
 export const signin = async (credentials) => {
     console.log(credentials);
     console.log(USERS_API);
@@ -29,8 +29,24 @@ export const createUser = async (user) => {
 export const findUserById = async (id) => {
     const response = await request.get(`${USERS_API}/${id}`);
     return response.data;
+};
+export const deleteUser = async (user) => {
+    const response = await request.delete(`${USERS_API}/${user._id}`);
+    return response.data;
+};
+export const signup = async (credentials) => {
+    const response = await request.post(
+      `${USERS_API}/signup`, credentials);
+    return response.data;
+  };
+export const signout = async () => {
+    const response = await request.post(`${USERS_API}/signout`);
+    return response.data;
   };
   
+  
+
+
 
 
 
