@@ -2,6 +2,7 @@ import KanbasNavigation from "./KanbasNavigation";
 import Signin from "./users/signin";
 import Account from "./users/account";
 import UserTable from "./users/table";
+import Signup from "./users/signup";
 import Dashboard from "./Dashboard";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Courses from "./Courses";
@@ -76,11 +77,12 @@ const { pathname } = useLocation();
         className={`list-group-item list-group-item-action ${pathname.includes("account") ? "active" : ""}`}>Account</Link>
     <Link to="/Kanbas/search"
           className={`list-group-item list-group-item-action ${pathname.includes("search") ? "active" : ""}`}>Search</Link>
+    
 </nav>
       <div>
       <Routes>
           <Route path="/" element={<Navigate to="Dashboard" />} />
-          <Route path="Account" element={<h1>Account</h1>} />
+          {/* <Route path="Account" element={<h1>Account</h1>} /> */}
           <Route path="Dashboard" element=
           {<Dashboard 
           courses={courses}
@@ -94,8 +96,10 @@ const { pathname } = useLocation();
           
           <Route path="Courses/:courseId/*" element={<Courses />} />
           <Route path="/signin" element={<Signin />} />
-          <Route path="Account" element={<Account />} />
+          <Route path="/Account" element={<Account />} />
+          <Route path="/Account/:id" element={<Account />} />
           <Route path="/admin/users" element={<UserTable />} />
+          <Route path="/signup" element={<Signup />} />
         </Routes>
       </div>
     </div>

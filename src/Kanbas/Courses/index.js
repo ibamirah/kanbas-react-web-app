@@ -36,7 +36,7 @@ function Courses() {
             </Helmet>
             <div>
             <AiOutlineMenu style={{ display: 'inline-block' }}/>
-            <h1 className="course-name" style={{ display: 'inline-block' }}>Course {course.number}  &gt; </h1>
+            <h1 className="course-name" style={{ display: 'inline-block' }}>Course {course.number} &gt; {course.name} </h1>
             </div>
             <div className="horizontal-line1"></div>
             <CourseNavigation />
